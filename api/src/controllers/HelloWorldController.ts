@@ -1,9 +1,17 @@
-import {Controller, Get} from "@tsed/common";
+import {Controller, Get, PathParams} from "@tsed/common";
 
-@Controller("/hello-world")
+@Controller("/tzebra")
 export class HelloWorldController {
-  @Get("/")
-  get() {
-    return "hello";
+  @Get("/:input")
+  get(@PathParams("input") input: string) {
+    return veryComplexAlgorythm(input);
   }
+}
+
+
+function veryComplexAlgorythm(input: string) {
+  const res = [...input]
+    .map((c, i) => i % 2 > 0 ? c.toUpperCase() : c.toLowerCase())
+    .join('') + ' 🦓';
+  return res;
 }
