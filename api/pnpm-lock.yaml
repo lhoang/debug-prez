@@ -15,6 +15,7 @@ specifiers:
   '@types/cookie-parser': ^1.4.2
   '@types/cors': ^2.8.12
   '@types/express': ^4.17.13
+  '@types/is-even': ^1.0.0
   '@types/jest': ^27.0.2
   '@types/method-override': ^0.0.32
   '@types/multer': ^1.4.7
@@ -33,6 +34,8 @@ specifiers:
   eslint-config-prettier: ^8.3.0
   eslint-plugin-prettier: ^4.0.0
   express: ^4.17.1
+  is-even: ^1.0.0
+  is-odd: ^3.0.1
   jest: ^27.3.1
   method-override: ^3.0.0
   supertest: ^6.1.6
@@ -40,6 +43,7 @@ specifiers:
   ts-node: ^10.3.0
   ts-node-dev: ^1.1.8
   tsconfig-paths: ^3.11.0
+  tslib: ^2.3.1
   typescript: ^4.4.4
 
 dependencies:
@@ -59,6 +63,8 @@ dependencies:
   cross-env: 7.0.3
   dotenv: 10.0.0
   express: 4.17.1
+  is-even: 1.0.0
+  is-odd: 3.0.1
   method-override: 3.0.0
 
 devDependencies:
@@ -68,6 +74,7 @@ devDependencies:
   '@types/cookie-parser': 1.4.2
   '@types/cors': 2.8.12
   '@types/express': 4.17.13
+  '@types/is-even': 1.0.0
   '@types/jest': 27.0.2
   '@types/method-override': 0.0.32
   '@types/multer': 1.4.7
@@ -84,6 +91,7 @@ devDependencies:
   ts-node: 10.3.0_4837b44df871fd426bb731ce8876dc42
   ts-node-dev: 1.1.8_typescript@4.4.4
   tsconfig-paths: 3.11.0
+  tslib: 2.3.1
   typescript: 4.4.4
 
 packages:
@@ -1107,6 +1115,10 @@ packages:
     resolution: {integrity: sha512-anKkLmZZ+xm4p8JWBf4hElkM4XR+EZeA2M9BAkkTldmcyDY4mbdIJnRghDJH3Ov5ooY7/UAoENtmdMSkaAd7Cw==}
     dependencies:
       '@types/node': 16.11.1
+    dev: true
+
+  /@types/is-even/1.0.0:
+    resolution: {integrity: sha512-TMfo5j24wiKIP0MzLWTJZao3xN3TxUtx8LFy2sEsxvtc2jb2fSMpPZKzMjCoYJ380m23F6Fr6E+u+0Za24V53g==}
     dev: true
 
   /@types/istanbul-lib-coverage/2.0.3:
@@ -2788,11 +2800,22 @@ packages:
       binary-extensions: 2.2.0
     dev: true
 
+  /is-buffer/1.1.6:
+    resolution: {integrity: sha512-NcdALwpXkTm5Zvvbk7owOUSvVvBKDgKP5/ewfXEznmQFfs4ZRmanOeKBTjRVjka3QFoN6XJ+9F3USqfHqTaU5w==}
+    dev: false
+
   /is-core-module/2.8.0:
     resolution: {integrity: sha512-vd15qHsaqrRL7dtH6QNuy0ndJmRDrS9HAM1CAiSifNUFv4x1a0CCVsj18hJ1mShxIG6T2i1sO78MkP56r0nYRw==}
     dependencies:
       has: 1.0.3
     dev: true
+
+  /is-even/1.0.0:
+    resolution: {integrity: sha1-drUFX7rY0pSoa2qUkBXhyXtxfAY=}
+    engines: {node: '>=0.10.0'}
+    dependencies:
+      is-odd: 0.1.2
+    dev: false
 
   /is-extglob/2.1.1:
     resolution: {integrity: sha1-qIwCU1eR8C7TfHahueqXc8gz+MI=}
@@ -2814,9 +2837,35 @@ packages:
     dependencies:
       is-extglob: 2.1.1
 
+  /is-number/3.0.0:
+    resolution: {integrity: sha1-JP1iAaR4LPUFYcgQJ2r8fRLXEZU=}
+    engines: {node: '>=0.10.0'}
+    dependencies:
+      kind-of: 3.2.2
+    dev: false
+
+  /is-number/6.0.0:
+    resolution: {integrity: sha512-Wu1VHeILBK8KAWJUAiSZQX94GmOE45Rg6/538fKwiloUu21KncEkYGPqob2oSZ5mUT73vLGrHQjKw3KMPwfDzg==}
+    engines: {node: '>=0.10.0'}
+    dev: false
+
   /is-number/7.0.0:
     resolution: {integrity: sha512-41Cifkg6e8TylSpdtTpeLVMqvSBEVzTttHvERD741+pnZ8ANv0004MRL43QKPDlK9cGvNp6NZWZUBlbGXYxxng==}
     engines: {node: '>=0.12.0'}
+
+  /is-odd/0.1.2:
+    resolution: {integrity: sha1-vFc7XONx7yqtbm9JeZtyvvE5eKc=}
+    engines: {node: '>=0.10.0'}
+    dependencies:
+      is-number: 3.0.0
+    dev: false
+
+  /is-odd/3.0.1:
+    resolution: {integrity: sha512-CQpnWPrDwmP1+SMHXZhtLtJv90yiyVfluGsX5iNCVkrhQtU3TQHsUWPG9wkdk9Lgd5yNpAg9jQEo90CBaXgWMA==}
+    engines: {node: '>=4'}
+    dependencies:
+      is-number: 6.0.0
+    dev: false
 
   /is-potential-custom-element-name/1.0.1:
     resolution: {integrity: sha512-bCYeRA2rVibKZd+s2625gGnGF/t7DSqDs4dP7CrLA1m7jKWz6pps0LpYLJN8Q64HtmPKJ1hrN3nzPNKFEKOUiQ==}
@@ -3484,6 +3533,13 @@ packages:
     resolution: {integrity: sha1-h3Gq4HmbZAdrdmQPygWPnBDjPss=}
     optionalDependencies:
       graceful-fs: 4.2.8
+    dev: false
+
+  /kind-of/3.2.2:
+    resolution: {integrity: sha1-MeohpzS6ubuw8yRm2JOupR5KPGQ=}
+    engines: {node: '>=0.10.0'}
+    dependencies:
+      is-buffer: 1.1.6
     dev: false
 
   /kleur/3.0.3:
